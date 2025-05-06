@@ -1,5 +1,4 @@
-<script src="game.js"></script>
-<link rel="stylesheet" href="/ella1111/style.css">// 获取页面元素
+
 const scoreElement = document.getElementById("score");
 const holes = document.querySelectorAll(".hole");
 const startButton = document.getElementById("start-button");
