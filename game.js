@@ -1,4 +1,3 @@
-<script src="game.js"></script>
 const scoreElement = document.getElementById("score");
 const holes = document.querySelectorAll(".hole");
 const startButton = document.getElementById("start-button");
@@ -57,4 +56,3 @@ function endGame() {
 
 // 为开始按钮添加点击事件
 startButton.addEventListener("click", startGame);
-
