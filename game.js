@@ -4,6 +4,7 @@ const startButton = document.getElementById("start-button");
 
 let score = 0; // 初始得分
 let moleInterval; // 地鼠显示的定时器
+const hitSound = new Audio("https://www.soundjay.com/buttons/sounds/button-7.mp3"); // 加载音效
 
 // 显示地鼠
 function showMole() {
@@ -11,6 +12,7 @@ function showMole() {
   const hole = holes[randomHoleIndex]; // 获取坑
   const mole = document.createElement("div");
   mole.classList.add("mole");
+  mole.textContent = "🐹"; // 设置地鼠为🐹 emoji
 
   // 确保坑内没有重复地鼠
   if (hole.querySelector(".mole")) {
@@ -24,13 +26,14 @@ function showMole() {
   }, 1000); // 地鼠在坑中显示1秒
 }
 
-// 点击地鼠增加分数
+// 点击地鼠增加分数并播放音效
 holes.forEach(hole => {
   hole.addEventListener("click", (event) => {
     if (event.target.classList.contains("mole")) {
       score += 1;
       scoreElement.textContent = score; // 更新得分
       event.target.remove(); // 移除被点击的地鼠
+      hitSound.play(); // 播放击中音效
     }
   });
 });
@@ -56,3 +59,4 @@ function endGame() {
 
 // 为开始按钮添加点击事件
 startButton.addEventListener("click", startGame);
+
